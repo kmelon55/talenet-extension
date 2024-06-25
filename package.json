@@ -12,12 +12,21 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "talenet.helloWorld",
-        "title": "Hello World"
+    "configuration": {
+      "title": "TaleNet Settings",
+      "properties": {
+        "talenet.doubleQuoteColor": {
+          "type": "string",
+          "default": "rgba(255, 205, 0, 0.3)",
+          "description": "Background color for double quotes."
+        },
+        "talenet.singleQuoteColor": {
+          "type": "string",
+          "default": "rgba(0, 255, 255, 0.3)",
+          "description": "Background color for single quotes."
+        }
       }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

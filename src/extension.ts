@@ -1,26 +1,93 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  console.log('Congratulations, your extension "talenet" is now active!');
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "talenet" is now active!');
+  const wordCountStatusBarItem = vscode.window.createStatusBarItem(
+    vscode.StatusBarAlignment.Left,
+    100
+  );
+  wordCountStatusBarItem.command = 'talenet.showWordCount';
+  context.subscriptions.push(wordCountStatusBarItem);
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('talenet.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from TaleNet!');
-	});
+  let doubleQuoteDecorator = vscode.window.createTextEditorDecorationType({});
+  let singleQuoteDecorator = vscode.window.createTextEditorDecorationType({});
 
-	context.subscriptions.push(disposable);
+  function updateDecorations() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+      return;
+    }
+
+    const doc = editor.document;
+    const wordCount = doc.getText().length; // 글자수 계산
+    wordCountStatusBarItem.text = `글자수: ${wordCount}`;
+    wordCountStatusBarItem.show();
+
+    const text = doc.getText();
+    const doubleQuotes = [];
+    const singleQuotes = [];
+    const doubleQuoteRegex = /"[^"]*"/g;
+    const singleQuoteRegex = /'[^']*'/g;
+
+    let match;
+    while ((match = doubleQuoteRegex.exec(text))) {
+      const startPos = doc.positionAt(match.index);
+      const endPos = doc.positionAt(match.index + match[0].length);
+      doubleQuotes.push({ range: new vscode.Range(startPos, endPos) });
+    }
+    while ((match = singleQuoteRegex.exec(text))) {
+      const startPos = doc.positionAt(match.index);
+      const endPos = doc.positionAt(match.index + match[0].length);
+      singleQuotes.push({ range: new vscode.Range(startPos, endPos) });
+    }
+
+    const doubleQuoteDecoration = vscode.workspace
+      .getConfiguration()
+      .get('talenet.doubleQuoteDecoration');
+    const singleQuoteDecoration = vscode.workspace
+      .getConfiguration()
+      .get('talenet.singleQuoteDecoration');
+    doubleQuoteDecorator = updateDecorator(
+      doubleQuoteDecorator,
+      doubleQuoteDecoration
+    );
+    singleQuoteDecorator = updateDecorator(
+      singleQuoteDecorator,
+      singleQuoteDecoration
+    );
+
+    editor.setDecorations(doubleQuoteDecorator, doubleQuotes);
+    editor.setDecorations(singleQuoteDecorator, singleQuotes);
+  }
+
+  function updateDecorator(
+    decorator: vscode.TextEditorDecorationType,
+    decorationOptions: any
+  ) {
+    decorator.dispose(); // 기존 데코레이터를 삭제
+    return vscode.window.createTextEditorDecorationType({
+      borderColor: decorationOptions.borderColor,
+      color: decorationOptions.color,
+      borderStyle: 'solid',
+      borderWidth: '1px',
+    });
+  }
+
+  vscode.window.onDidChangeActiveTextEditor(
+    updateDecorations,
+    null,
+    context.subscriptions
+  );
+  vscode.workspace.onDidChangeTextDocument(
+    updateDecorations,
+    null,
+    context.subscriptions
+  );
+
+  updateDecorations(); // 활성화시 초기 글자수 업데이트
 }
 
-// This method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() {
+  console.log('Your extension "talenet" is now deactivated.');
+}

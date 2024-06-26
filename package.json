@@ -23,7 +23,10 @@
         "talenet.singleQuoteColor": {
           "type": "string",
           "default": "rgba(0, 255, 255, 0.3)",
-          "description": "Background color for single quotes."
+        "talenet.includeSpaces": {
+          "type": "boolean",
+          "default": true,
+          "description": "체크하면 공백을 포함한 글자수를 상태바에 표시합니다."
         }
       }
     }

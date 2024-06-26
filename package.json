@@ -18,11 +18,13 @@
         "talenet.doubleQuoteColor": {
           "type": "string",
           "default": "rgba(255, 205, 0, 0.3)",
-          "description": "Background color for double quotes."
+          "description": "쌍따움표 글자 색상"
         },
         "talenet.singleQuoteColor": {
           "type": "string",
           "default": "rgba(0, 255, 255, 0.3)",
+          "description": "홑따움표 글자 색상"
+        },
         "talenet.includeSpaces": {
           "type": "boolean",
           "default": true,

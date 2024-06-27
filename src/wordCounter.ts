@@ -21,7 +21,7 @@ export function updateWordCountStatusBar(
     wordCount = doc.getText().replace(/\s+/g, '').length; // 공백 제외 글자수 계산
   }
 
-  wordCountStatusBarItem.text = `Word Count: ${wordCount}`;
+  wordCountStatusBarItem.text = `글자 수: ${wordCount}`;
 }
 
 export function createWordCountStatusBarItem(): vscode.StatusBarItem {

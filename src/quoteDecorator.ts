@@ -29,10 +29,10 @@ export function updateQuoteDecorations() {
 
   const doubleQuoteColor = vscode.workspace
     .getConfiguration()
-    .get('talenet.doubleQuoteColor');
+    .get('talenet.quotes.doubleQuoteColor');
   const singleQuoteColor = vscode.workspace
     .getConfiguration()
-    .get('talenet.singleQuoteColor');
+    .get('talenet.quotes.singleQuoteColor');
 
   doubleQuoteDecorator = updateDecorator(doubleQuoteDecorator, {
     color: doubleQuoteColor,

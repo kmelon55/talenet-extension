@@ -17,15 +17,17 @@
     "configuration": {
       "title": "TaleNet Settings",
       "properties": {
-        "talenet.doubleQuoteColor": {
+        "talenet.quotes.doubleQuoteColor": {
           "type": "string",
-          "default": "rgba(255, 205, 0, 0.3)",
-          "description": "쌍따움표 글자 색상"
+          "default": "#FFCD00",
+          "description": "쌍따옴표 글자 색상",
+          "format": "color"
         },
-        "talenet.singleQuoteColor": {
+        "talenet.quotes.singleQuoteColor": {
           "type": "string",
-          "default": "rgba(0, 255, 255, 0.3)",
-          "description": "홑따움표 글자 색상"
+          "default": "#10FFFF",
+          "description": "홑따옴표 글자 색상",
+          "format": "color"
         },
         "talenet.includeSpaces": {
           "type": "boolean",

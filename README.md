@@ -1,71 +1,27 @@
 # talenet README
 
-This is the README for your extension "talenet". After writing up a brief description, we recommend including the following sections.
+이 문서는 "talenet" 확장 기능에 대한 README입니다.
+TaleNet은 특히 웹 소설을 작성하는 작가들을 위해 단어 수 표시 및 따옴표 강조와 같은 유용한 기능을 제공하는 도구입니다.
 
-## Features
+## 기능
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **글자 수 표시**: 상태 표시줄에 에디터의 글자 수를 표시합니다. 공백을 포함할지 여부를 설정할 수 있습니다.
+- **따옴표 강조**: 텍스트의 쌍따옴표와 홑따옴표를 사용자 정의 색상으로 강조합니다.
 
-For example if there is an image subfolder under your extension project workspace:
+\!\[단어 수 및 따옴표 강조 기능\]\(images/feature.png\)
 
-\!\[feature X\]\(images/feature-x.png\)
+## 요구 사항
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+이 확장 기능을 사용하기 위해 필요한 특정 요구 사항이나 종속성은 없습니다.
 
-## Requirements
+## 확장 설정
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+이 확장 기능은 다음 설정을 제공합니다:
 
-## Extension Settings
+- `talenet.includeSpaces`: 단어 수 계산에 공백 포함 여부를 설정합니다.
+- `talenet.quotes.doubleQuoteColor`: 쌍따옴표 텍스트의 색상을 설정합니다.
+- `talenet.quotes.singleQuoteColor`: 홑따옴표 텍스트의 색상을 설정합니다.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+### 0.0.1
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- 글자 수 표시 및 따옴표 강조 기능이 포함된 첫 번째 릴리스

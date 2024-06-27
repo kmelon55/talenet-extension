@@ -10,8 +10,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onStartupFinished",
-    "onTextEditorChange"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {

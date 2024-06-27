@@ -1,6 +1,7 @@
 {
   "name": "talenet",
   "displayName": "TaleNet",
+  "publisher": "talenet",
   "description": "웹 소설, 블로그 작성등 한글 작성을 위한 Visual Studio Code 확장 프로그램입니다.",
   "version": "0.0.1",
   "engines": {

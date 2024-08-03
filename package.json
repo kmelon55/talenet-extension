@@ -29,11 +29,6 @@
           "default": "#10FFFF",
           "description": "홑따옴표 글자 색상",
           "format": "color"
-        },
-        "talenet.includeSpaces": {
-          "type": "boolean",
-          "default": true,
-          "description": "체크하면 공백을 포함한 글자수를 상태바에 표시합니다."
         }
       }
     }

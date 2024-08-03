@@ -10,18 +10,11 @@ export function updateWordCountStatusBar(
   }
 
   const doc = editor.document;
-  const includeSpaces = vscode.workspace
-    .getConfiguration()
-    .get('talenet.includeSpaces');
-  let wordCount: number;
+  const text = doc.getText();
+  const wordCountWithSpaces = text.length; // 공백 포함 글자수 계산
+  const wordCountWithoutSpaces = text.replace(/\s+/g, '').length; // 공백 제외 글자수 계산
 
-  if (includeSpaces) {
-    wordCount = doc.getText().length; // 공백 포함 글자수 계산
-  } else {
-    wordCount = doc.getText().replace(/\s+/g, '').length; // 공백 제외 글자수 계산
-  }
-
-  wordCountStatusBarItem.text = `글자 수: ${wordCount}`;
+  wordCountStatusBarItem.text = `글자 수 (공백 포함): ${wordCountWithSpaces}자 / (공백 제외): ${wordCountWithoutSpaces}자`;
 }
 
 export function createWordCountStatusBarItem(): vscode.StatusBarItem {

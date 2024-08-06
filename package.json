@@ -31,6 +31,29 @@
           "format": "color"
         }
       }
+    },
+    "commands": [
+      {
+        "command": "extension.showWebView",
+        "title": "Show WebView"
+      },
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "myExtension",
+          "title": "My Extension",
+          "icon": "resources/talenet-logo.png"
+        }
+      ]
+    },
+    "views": {
+      "myExtension": [
+        {
+          "id": "webviewButton",
+          "name": "Open WebView"
+        }
+      ]
     }
   },
   "scripts": {

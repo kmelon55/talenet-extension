@@ -37,6 +37,10 @@
         "command": "extension.showWebView",
         "title": "Show WebView"
       },
+      {
+        "command": "talenet-extension.authCallback",
+        "title": "Handle Auth Callback"
+      }
     ],
     "viewsContainers": {
       "activitybar": [

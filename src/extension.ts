@@ -10,6 +10,18 @@ import { WebviewButtonProvider } from './buttonProvider';
 export function activate(context: vscode.ExtensionContext) {
   console.log('Extension "WordCountAndQuoteColor" is now active!');
 
+  // Register URI handler
+  const uriHandler = {
+    handleUri(uri: vscode.Uri) {
+      console.log('Received URI:', uri);
+      const query = uri.query;
+      console.log('Auth callback received with query:', query);
+      // vscode.commands.executeCommand('talenet-extension.authCallback', uri);
+    },
+  };
+
+  context.subscriptions.push(vscode.window.registerUriHandler(uriHandler));
+
   // Register command to show WebView
   const showWebViewCommand = vscode.commands.registerCommand(
     'extension.showWebView',
